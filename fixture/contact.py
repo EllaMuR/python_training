@@ -10,6 +10,37 @@ class ContactHelper:
         # init adding a contact
         wd.find_element_by_link_text("add new").click()
         # filling the form
+        self.fill_contact_form(contact)
+        # submit adding a contact
+        wd.find_element_by_xpath("//div[@id='content']/form/input[20]").click()
+        self.app.go_to_homepage()
+
+    def delete_first(self):
+        wd = self.app.wd
+        self.app.go_to_homepage()
+        # select first contact
+        wd.find_element_by_name("selected[]").click()
+        # submit deletion
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        #wd.SwitchTo().alert().accept()
+        #wd.switch_to().alert()
+        wd.switch_to.alert.accept()
+        self.app.go_to_homepage()
+
+    def modify_first_contact(self,contact):
+        wd = self.app.wd
+        self.app.go_to_homepage()
+        # open edit page
+        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        # filling the form
+        self.fill_contact_form(contact)
+        # Submit edition
+        wd.find_element_by_name("update").click()
+        self.app.go_to_homepage()
+
+
+    def fill_contact_form(self, contact):
+        wd = self.app.wd
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys(contact.firstname)
@@ -69,6 +100,3 @@ class ContactHelper:
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").clear()
         wd.find_element_by_name("ayear").send_keys(contact.ayear)
-        # submit adding a contact
-        wd.find_element_by_xpath("//div[@id='content']/form/input[20]").click()
-        self.app.return_to_homepage()
