@@ -24,7 +24,7 @@ class ContactHelper:
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         #wd.SwitchTo().alert().accept()
         #wd.switch_to().alert()
-        wd.switch_to.alert.accept()
+        #wd.switch_to.alert.accept()
         self.app.go_to_homepage()
 
     def modify_first_contact(self,contact):
