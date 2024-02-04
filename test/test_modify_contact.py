@@ -9,4 +9,11 @@ def test_modify_first_contact(app):
     aday="11", amonth="April", ayear="2023"))
 
 
+def test_modify_first_contact_fio(app):
+    app.contact.modify_first_contact(Contact(firstname="Проверка", middlename="Проверочная", lastname="Тестовая"))
 
+def test_modify_first_contact_email(app):
+    app.contact.modify_first_contact(Contact(email1="testtest1@test.ru"))
+
+def test_modify_first_contact_bdate(app):
+    app.contact.modify_first_contact(Contact(bday="19", bmonth="June", byear="1992"))
