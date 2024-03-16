@@ -190,3 +190,30 @@ class ContactHelper:
                        work_phone=work_phone)
 
 
+    def add_contact_to_group(self, id, group_id):
+        wd = self.app.wd
+        self.app.go_to_homepage()
+        self.select_contact_by_id(id)
+        wd.find_element_by_name("to_group").click()
+        self.select_group_by_id(group_id)
+        wd.find_element_by_name("add").click()
+        self.contact_cache = None
+
+
+    def select_group_by_id(self, group_id):
+        wd = self.app.wd
+        # select some group
+        wd.find_element_by_name("to_group").find_element_by_css_selector("[value='%s']" % group_id).click()
+
+    def delete_contact_from_group(self, id, group_id):
+        wd = self.app.wd
+        self.app.go_to_homepage()
+        wd.find_element_by_name("group").click()
+        self.select_group_for_remove_by_id(group_id)
+        self.select_contact_by_id(id)
+        wd.find_element_by_name("remove").click()
+
+    def select_group_for_remove_by_id(self, group_id):
+        wd = self.app.wd
+        # select some group
+        wd.find_element_by_name("group").find_element_by_css_selector("[value='%s']" % group_id).click()
