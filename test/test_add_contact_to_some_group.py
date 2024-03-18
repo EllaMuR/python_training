@@ -8,7 +8,7 @@ database = ORMFixture(host="127.0.0.1", name="addressbook", user="root", passwor
 def test_add_contact_to_group(app, db):
     if len(db.get_group_list()) == 0:
         app.group.create(Group(name="test"))
-    if len(db.get_group_list()) == 0:
+    if len(db.get_contact_list()) == 0:
         app.contact.add_new(Contact(firstname="Тест", middlename="Тестович", lastname="Тестовый",
                                 nickname="Test", title="test_person", company="test_test",
                                 email1="test1test@test.ru", bday="11", bmonth="August", byear="2001"))
