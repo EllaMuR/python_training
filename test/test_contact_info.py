@@ -19,7 +19,7 @@ def test_match_contact_info_on_homepage_and_db(app, db):
         assert contact_from_homepage[i].lastname == replace_many_spaces(contacts_from_db[i].lastname)
         assert contact_from_homepage[i].firstname == replace_many_spaces(contacts_from_db[i].firstname)
         assert contact_from_homepage[i].address == replace_many_spaces(contacts_from_db[i].address)
-        assert clear_spaces(contact_from_homepage[i].all_emails_from_homepage) == merge_emails_like_on_homepage(contacts_from_db[i])
+        assert contact_from_homepage[i].all_emails_from_homepage == merge_emails_like_on_homepage(contacts_from_db[i])
         assert contact_from_homepage[i].all_phones_from_homepage == merge_phones_like_on_homepage(contacts_from_db[i])
 
 
@@ -66,7 +66,7 @@ def merge_phones_like_on_homepage(contact):
                                                         [contact.homephone, contact.mobile_phone, contact.work_phone]))))
 
 def merge_emails_like_on_homepage(contact):
-    return "\n".join(filter(lambda x: x != "", map(lambda x: clear(x),
+    return "\n".join(filter(lambda x: x != "", map(lambda x: replace_many_spaces(x),
                                                    filter(lambda x: x is not None,
                                                           [contact.email1, contact.email2,
                                                            contact.email3]))))
