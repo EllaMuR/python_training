@@ -1,0 +1,59 @@
+Started by user admin
+Running as SYSTEM
+Building in workspace C:\Users\ellam\.jenkins\workspace\addressbook tests
+The recommended git tool is: NONE
+No credentials specified
+ > C:\Program Files\Git\bin\git.exe rev-parse --resolve-git-dir C:\Users\ellam\.jenkins\workspace\addressbook tests\.git # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\bin\git.exe config remote.origin.url https://github.com/EllaMuR/python_training # timeout=10
+Fetching upstream changes from https://github.com/EllaMuR/python_training
+ > C:\Program Files\Git\bin\git.exe --version # timeout=10
+ > git --version # 'git version 2.44.0.windows.1'
+ > C:\Program Files\Git\bin\git.exe fetch --tags --force --progress -- https://github.com/EllaMuR/python_training +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > C:\Program Files\Git\bin\git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision ba269ff022455413497e47ad8929e0f3d62fd28c (refs/remotes/origin/main)
+ > C:\Program Files\Git\bin\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\bin\git.exe checkout -f ba269ff022455413497e47ad8929e0f3d62fd28c # timeout=10
+Commit message: "добавлен файл с настройками сборки"
+ > C:\Program Files\Git\bin\git.exe rev-list --no-walk ba269ff022455413497e47ad8929e0f3d62fd28c # timeout=10
+[addressbook tests] $ cmd.exe /c call C:\Users\ellam\AppData\Local\Temp\shiningpanda13598271519743469918.bat
+
+C:\Users\ellam\.jenkins\workspace\addressbook tests>pip install -r requirements.txt
+Requirement already satisfied: pytest in c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 1)) (8.1.1)
+Requirement already satisfied: selenium==3.141.0 in c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 2)) (3.141.0)
+Requirement already satisfied: urllib3==1.26.16 in c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 3)) (1.26.16)
+Requirement already satisfied: jsonpickle in c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 4)) (3.0.3)
+Requirement already satisfied: pony in c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 5)) (0.7.17)
+Requirement already satisfied: pymysql in c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages (from -r requirements.txt (line 6)) (1.1.0)
+Requirement already satisfied: iniconfig in c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (2.0.0)
+Requirement already satisfied: packaging in c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (24.0)
+Requirement already satisfied: pluggy<2.0,>=1.4 in c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (1.4.0)
+Requirement already satisfied: exceptiongroup>=1.0.0rc8 in c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (1.2.0)
+Requirement already satisfied: tomli>=1 in c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (2.0.1)
+Requirement already satisfied: colorama in c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages (from pytest->-r requirements.txt (line 1)) (0.4.6)
+
+C:\Users\ellam\.jenkins\workspace\addressbook tests>pytest --junitxml=results.xml test\test_add_contact.py
+============================= test session starts =============================
+platform win32 -- Python 3.9.0, pytest-8.1.1, pluggy-1.4.0
+rootdir: C:\Users\ellam\.jenkins\workspace\addressbook tests
+collected 6 items
+
+test\test_add_contact.py ......                                          [100%]
+
+============================== warnings summary ===============================
+test/test_add_contact.py: 681 warnings
+  c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages\selenium\webdriver\remote\remote_connection.py:418: DeprecationWarning: HTTPResponse.getheader() is deprecated and will be removed in urllib3 v2.1.0. Instead use HTTPResponse.headers.get(name, default).
+    if resp.getheader('Content-Type') is not None:
+
+test/test_add_contact.py: 681 warnings
+  c:\users\ellam\.jenkins\shiningpanda\jobs\62ae2d4d\virtualenvs\d41d8cd9\lib\site-packages\selenium\webdriver\remote\remote_connection.py:419: DeprecationWarning: HTTPResponse.getheader() is deprecated and will be removed in urllib3 v2.1.0. Instead use HTTPResponse.headers.get(name, default).
+    content_type = resp.getheader('Content-Type').split(';')
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+- generated xml file: C:\Users\ellam\.jenkins\workspace\addressbook tests\results.xml -
+====================== 6 passed, 1362 warnings in 36.64s ======================
+
+C:\Users\ellam\.jenkins\workspace\addressbook tests>exit 0
+Recording test results
+[Checks API] No suitable checks publisher found.
+Finished: SUCCESS
