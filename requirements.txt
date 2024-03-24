@@ -1,0 +1,6 @@
+pytest
+selenium==3.141.0
+urllib3==1.26.16
+jsonpickle
+pony
+pymysql
